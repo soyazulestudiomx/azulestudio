@@ -1,0 +1,189 @@
+/* src/components/Dashboard/Dashboard.css */
+.dashboard-grid {
+  display: grid;
+  /* Ajusta el grid para que las primeras 3 tarjetas estén en una fila
+     y las otras se apilen o se distribuyan según el diseño */
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales para las tarjetas superiores */
+  gap: 20px; /* Espacio entre los elementos del grid */
+  padding: 0; /* El padding ya lo maneja .dashboard-content en App.css */
+}
+
+/* Estilos generales para todas las tarjetas */
+.card {
+  background-color: var(--color-white);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--color-text-dark);
+  font-weight: 500;
+}
+
+.card-header .icon {
+  font-size: 1.5rem; /* Tamaño para los íconos de las tarjetas */
+  color: var(--color-text-light);
+}
+
+/* Estilos específicos para las tarjetas de resumen */
+.summary-cards {
+  grid-column: 1 / -1; /* Ocupa todas las columnas en la primera fila */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adaptativo */
+  gap: 20px;
+}
+
+.summary-card .card-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin: 0 0 5px 0;
+}
+
+.summary-card .card-detail {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+/* Estilo para la tarjeta de alertas activas (roja) */
+.danger-card {
+  border-left: 5px solid #dc3545; /* Borde rojo */
+}
+
+/* Estilos para tarjetas de ancho completo */
+.full-width-card {
+  grid-column: 1 / -1; /* Ocupa todo el ancho disponible */
+}
+
+/* Estilos para la sección de Próximas Sesiones */
+.session-list {
+  margin-bottom: 20px;
+}
+
+.session-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee; /* Separador entre sesiones */
+}
+
+.session-item:last-child {
+  border-bottom: none; /* No hay separador en el último item */
+}
+
+.session-item .session-title {
+  font-weight: 500;
+  margin: 0;
+}
+
+.session-item .session-date {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  margin: 0;
+  flex-grow: 1; /* Permite que la fecha ocupe el espacio */
+  margin-left: 10px; /* Pequeño margen */
+}
+
+/* Estilos para la sección de Alertas Importantes */
+.alerts-card .alert-list {
+  margin-bottom: 20px;
+}
+
+.alert-item {
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.alert-item.warning {
+  background-color: #fff3cd; /* Amarillo claro */
+  color: #664d03; /* Amarillo oscuro */
+  border: 1px solid #ffc720;
+}
+
+.alert-item.danger {
+  background-color: #f8d7da; /* Rojo claro */
+  color: #842029; /* Rojo oscuro */
+  border: 1px solid #f5c2c7;
+}
+
+/* Estilos para los botones */
+.button {
+ padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.1s ease;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.button-link {
+  background: none;
+  color: var(--color-primary); /* Color del texto del enlace */
+  padding: 0;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.button-link:hover {
+  color: #0056b3; /* Un poco más oscuro en hover */
+}
+
+.button.primary-button {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.button.primary-button:hover {
+    background-color: #303f9f;
+}
+
+.button.secondary-button {
+  background-color: #6c757d; /* Gris */
+  color: var(--color-white);
+}
+
+.button.secondary-button:hover {
+  background-color: #5a6268;
+}
+
+.button.success-button {
+  background-color: #28a745; /* Verde */
+  color: var(--color-white);
+}
+
+.button.success-button:hover {
+  background-color: #218838;
+}
+
+.full-width-button {
+  width: 100%;
+  margin-top: 15px; /* Espacio arriba del botón */
+}
+
+/* Estilos para la sección de Accesos Rápidos */
+.quick-access-buttons {
+  display: flex;
+  gap: 15px; /* Espacio entre los botones */
+  flex-wrap: wrap; /* Permite que los botones se envuelvan en líneas nuevas */
+  justify-content: space-around;
+}

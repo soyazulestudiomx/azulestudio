@@ -1,0 +1,149 @@
+/* src/pages/EquipmentFormPage.css */
+
+.equipment-form-container {
+    padding: 0;
+}
+
+.equipment-form-card {
+    padding: 30px;
+    background-color: var(--color-white);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.equipment-form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.equipment-form-header h2 {
+    margin: 0;
+    font-size: 2.2rem;
+    color: var(--color-text-dark);
+    font-weight: 700;
+}
+
+.equipment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Para posicionar el mensaje de error si fuera necesario */
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    font-size: 0.95rem;
+}
+
+/* Estilos para el asterisco requerido */
+.required-star {
+    color: var(--color-danger);
+    margin-left: 4px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="url"],
+.form-group input[type="date"], /* Mantener este por si en el futuro se añade otro campo de fecha */
+.form-group select,
+.form-group textarea {
+    padding: 12px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: var(--color-text-dark);
+    background-color: #fcfcfc;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Estilos para inputs con error */
+.form-group .input-error {
+    border-color: var(--color-danger);
+    box-shadow: 0 0 0 3px rgba(var(--color-danger-rgb), 0.1);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.1);
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.image-preview {
+    max-width: 150px;
+    max-height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-top: 10px;
+    border: 1px solid #e0e0e0;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 20px;
+    border-top: 1px solid #f0f2f5;
+    padding-top: 20px;
+}
+
+.form-actions .button {
+    padding: 10px 25px;
+    font-size: 1rem;
+}
+
+/* Mensajes de error */
+.error-message {
+    color: var(--color-danger);
+    font-size: 0.85rem;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+    .equipment-form-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .equipment-form-header .button {
+        width: 100%;
+    }
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    .form-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    .form-actions .button {
+        width: 100%;
+    }
+}

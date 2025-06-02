@@ -1,13 +1,46 @@
+/* src/index.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --color-primary: #242742; /* Azul oscuro/casi negro para menús y botones */
+  --color-sidebar-gradient-start: #242742; /* Color inicial del gradiente de sidebar */
+  --color-sidebar-gradient-end: #4e5480; /* Color final del gradiente de sidebar */
+  --color-light-gray: #f0f2f5; /* Un gris claro para fondos */
+  --color-white: #ffffff;
+  --color-text-dark: #333333; /* Color de texto oscuro general */
+  --color-text-light: #666666; /* Color de texto más claro */
+
+  /* Colores para bordes de tarjetas de resumen */
+  --color-summary-card-green: #28a745; /* Similar al color de "Nueva Sesión" */
+  --color-summary-card-blue: #007bff; /* Un azul para el total de artículos */
+  --color-summary-card-red: #dc3545; /* Rojo para alertas */
+
+  /* Variable para sombra estándar de tarjeta */
+  --card-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-light-gray);
+  color: var(--color-text-dark);
+  font-size: 16px; /* Base font size */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Estilos básicos para elementos que podemos usar */
+button {
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+}
+
+/* Para asegurar que los íconos de Font Awesome tengan el tamaño correcto */
+.icon {
+  font-size: 1.2rem; /* Tamaño base para íconos */
 }

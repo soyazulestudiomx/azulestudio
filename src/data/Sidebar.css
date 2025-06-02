@@ -1,0 +1,70 @@
+/* src/components/Layout/Sidebar.css */
+.sidebar {
+  width: 250px;
+  /* Aplica un gradiente lineal al fondo */
+  background: linear-gradient(to bottom, var(--color-sidebar-gradient-start), var(--color-sidebar-gradient-end));
+  color: var(--color-white);
+  padding: 20px 0;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200; /* Asegura que esté por encima de todo */
+}
+
+.sidebar-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 0 20px;
+}
+
+.sidebar-header .logo {
+  max-width: 150px;
+  height: auto;
+  filter: brightness(1.2); /* Ligeramente más brillante para destacar */
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav li {
+  margin-bottom: 8px; /* Espacio entre items del menú */
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  color: var(--color-white);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 5px;
+  margin: 0 15px; /* Más margen para el borde */
+  font-weight: 500; /* Peso de la fuente */
+}
+
+.sidebar-nav a:hover {
+  background-color: rgba(255, 255, 255, 0.15); /* Efecto hover más notorio */
+}
+
+.sidebar-nav li.active a {
+  background-color: rgba(255, 255, 255, 0.2); /* Fondo más oscuro para el activo */
+  box-shadow: inset 3px 0 0 var(--color-white); /* Borde blanco a la izquierda para activo */
+}
+
+.sidebar-nav .icon {
+  margin-right: 15px;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8); /* Color de ícono ligeramente más claro */
+}
+
+.sidebar-nav li.active .icon {
+    color: var(--color-white); /* Ícono blanco cuando está activo */
+}

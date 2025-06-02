@@ -1,0 +1,314 @@
+/* src/components/Calendar/EventFormModal.css */
+
+/* --- Estilos Generales del Modal --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente más oscuro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Asegura que el overlay esté por encima de todo */
+}
+
+.modal-content {
+    background: white;
+    padding: 25px 30px; /* Ajusta padding para ser un poco más compacto */
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35); /* Sombra más pronunciada */
+    width: 90%;
+    max-width: 550px; /* Puedes ajustar el ancho máximo */
+    z-index: 10000; /* Asegura que el contenido del modal esté por encima del overlay */
+    position: relative; /* Para que el z-index funcione correctamente con el datepicker */
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh; /* Limita la altura para evitar desbordamiento en pantallas pequeñas */
+    overflow-y: auto; /* Habilita scroll si el contenido es demasiado largo */
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee; /* Línea separadora */
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.8em;
+    color: #2c3e50;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 2em;
+    color: #888;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1; /* Elimina espacio extra */
+    transition: color 0.2s ease;
+}
+
+.close-button:hover {
+    color: #333;
+}
+
+/* --- Estilos de Formulario --- */
+.form-group {
+    margin-bottom: 18px; /* Espacio entre grupos de formulario */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+    font-size: 0.95em;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+    font-size: 1em;
+    font-family: inherit;
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical; /* Permite redimensionar verticalmente */
+    min-height: 80px;
+}
+
+/* Checkbox (Día completo) */
+.form-group input[type="checkbox"] {
+    margin-right: 8px;
+    transform: scale(1.1); /* Hace el checkbox un poco más grande */
+}
+
+.form-group input[type="checkbox"] + label {
+    display: inline-block; /* Alinea la label con el checkbox */
+    font-weight: normal;
+    color: #333;
+    cursor: pointer;
+}
+
+
+/* --- Estilos para react-datepicker (NUEVO Y CORREGIDO) --- */
+/* NOTA: El CSS de react-datepicker.css se importa directamente en EventFormModal.js */
+/* Estos estilos son para sobrescribir o complementar los de react-datepicker */
+
+.react-datepicker-wrapper {
+    width: 100%;
+}
+
+/* Estilo para el input dentro del DatePicker */
+.react-datepicker__input-container input {
+    width: 100%;
+    padding: 12px 15px; /* Consistente con otros inputs */
+    border: 1px solid #dcdcdc; /* Consistente con otros inputs */
+    border-radius: 6px; /* Consistente con otros inputs */
+    font-size: 1em;
+    font-family: inherit;
+    box-sizing: border-box;
+    margin-top: 5px; /* Espacio debajo de la label */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.react-datepicker__input-container input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+    outline: none;
+}
+
+/* Ajustes generales del calendario emergente */
+.react-datepicker {
+    font-family: 'Arial', sans-serif; /* Consistente con el resto del UI */
+    border: 1px solid #c0c0c0; /* Borde más suave */
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Sombra más profunda */
+    z-index: 10001; /* Asegura que el datepicker se vea por encima del modal */
+    background-color: #fff;
+}
+
+/* Cabecera del datepicker (mes, año, flechas) */
+.react-datepicker__header {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+/* Título del mes/año */
+.react-datepicker__current-month,
+.react-datepicker-time__header {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.1em;
+}
+
+/* Nombres de los días de la semana */
+.react-datepicker__day-name {
+    color: #666;
+    font-size: 0.85em;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+/* Días individuales */
+.react-datepicker__day {
+    color: #333;
+    padding: 7px;
+    border-radius: 4px;
+    transition: background-color 0.1s ease, color 0.1s ease;
+}
+
+.react-datepicker__day--selected {
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+}
+
+.react-datepicker__day:hover:not(.react-datepicker__day--selected) {
+    background-color: #e9ecef; /* Color de hover suave */
+    border-radius: 4px;
+}
+
+.react-datepicker__day--outside-month {
+    color: #ccc; /* Días de meses anteriores/siguientes */
+}
+
+/* Selector de tiempo (si showTimeSelect es true) */
+.react-datepicker__time-container {
+    border-left: 1px solid #eee;
+}
+
+.react-datepicker__time-list-item {
+    font-size: 0.9em;
+    padding: 6px 10px;
+    cursor: pointer;
+}
+
+.react-datepicker__time-list-item--selected {
+    background-color: #007bff;
+    color: white;
+}
+
+.react-datepicker__time-list-item:hover:not(.react-datepicker__time-list-item--selected) {
+    background-color: #e9ecef;
+}
+
+/* --- Estilos para react-select (Equipos) --- */
+/* Estos son estilos de ejemplo para react-select.
+   Asegúrate de que tus clases `react-select-container` y `react-select` coincidan con las de tu JSX. */
+.react-select-container .react-select__control {
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+    padding: 2px 5px; /* Ajusta el padding para la altura del select */
+    min-height: 44px; /* Asegura una altura mínima */
+    box-shadow: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.react-select-container .react-select__control--is-focused {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+    outline: none;
+}
+
+.react-select-container .react-select__placeholder {
+    color: #aaa;
+}
+
+.react-select-container .react-select__multi-value {
+    background-color: #e0f2f7; /* Fondo para los tags de selección múltiple */
+    border-radius: 4px;
+    padding: 3px 8px;
+}
+
+.react-select-container .react-select__multi-value__label {
+    color: #333;
+    font-size: 0.9em;
+}
+
+.react-select-container .react-select__multi-value__remove {
+    color: #999;
+    cursor: pointer;
+}
+
+.react-select-container .react-select__multi-value__remove:hover {
+    background-color: #d0eaf2;
+    color: #666;
+}
+
+/* --- Estilos de Botones de Acción (modal-actions) --- */
+.modal-actions {
+    display: flex;
+    justify-content: flex-end; /* Alinea los botones a la derecha */
+    gap: 10px; /* Espacio entre botones */
+    margin-top: 25px; /* Espacio superior */
+    padding-top: 20px;
+    border-top: 1px solid #eee; /* Línea separadora superior */
+}
+
+/* Estilos comunes para todos los botones dentro del modal */
+.modal-actions .button {
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 0.95em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    text-align: center;
+}
+
+.modal-actions .primary-button {
+    background-color: #007bff;
+    color: white;
+    border: 1px solid #007bff;
+}
+
+.modal-actions .primary-button:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.modal-actions .secondary-button {
+    background-color: white;
+    color: #555;
+    border: 1px solid #ccc;
+}
+
+.modal-actions .secondary-button:hover {
+    background-color: #f0f0f0;
+    border-color: #bbb;
+}
+
+.modal-actions .delete-button {
+    background-color: #dc3545; /* Rojo para eliminar */
+    color: white;
+    border: 1px solid #dc3545;
+    margin-right: auto; /* Empuja el botón de eliminar a la izquierda */
+}
+
+.modal-actions .delete-button:hover {
+    background-color: #c82333;
+    border-color: #c82333;
+}

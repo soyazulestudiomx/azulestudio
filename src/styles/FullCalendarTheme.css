@@ -1,0 +1,110 @@
+/* src/styles/FullCalendarTheme.css */
+
+/* 1. Reset básico para FullCalendar */
+.fc {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 10px; /* Reducido de 15px a 10px */
+}
+
+/* 2. Cabecera del calendario (Mes, botones de navegación) */
+.fc .fc-toolbar-title {
+    font-size: 1.6em; /* Un poco más pequeño */
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.fc .fc-button-group .fc-button {
+    /* ... mantener estilos de botones ... */
+    padding: 6px 10px; /* Reducir padding de botones */
+    font-size: 0.85em; /* Un poco más pequeño */
+}
+
+/* 3. Cabeceras de los días de la semana */
+.fc-col-header-cell-cushion {
+    padding: 8px 0; /* Reducido de 10px a 8px */
+    font-weight: 700;
+    color: #6c757d;
+    text-transform: uppercase;
+    font-size: 0.8em; /* Un poco más pequeño */
+    letter-spacing: 0.5px;
+}
+
+/* 4. Celdas de los días (cajas donde están los números y eventos) */
+.fc-daygrid-day {
+    border: 1px solid #e0e0e0;
+}
+
+/* Color de fondo para el día actual */
+.fc-day-today {
+    background-color: #f7faff;
+}
+
+/* Estilo para los números de los días */
+.fc-daygrid-day-number {
+    font-size: 1em; /* Un poco más pequeño */
+    font-weight: 600;
+    padding: 6px; /* Reducido de 8px a 6px */
+    color: #333;
+    opacity: 0.8;
+}
+
+/* Reducir opacidad para números de días de otros meses */
+.fc-daygrid-day-other-month .fc-daygrid-day-number {
+    opacity: 0.4;
+}
+
+/* 5. Estilos de los eventos */
+.fc-event {
+    /* ... (los estilos de evento que modificamos arriba para el color) ... */
+    padding: 2px 8px 2px 10px; /* Ajusta padding para ser más compacto */
+    margin-bottom: 2px; /* Espacio entre eventos apilados */
+    font-size: 0.75em; /* Tamaño de fuente aún más pequeño */
+}
+
+.fc-event:hover {
+    /* Ajusta el hover para que coincida con el nuevo color base */
+    background-color: #b3dcf5; /* Un azul más oscuro al pasar el mouse */
+}
+
+/* Estilo para el título del evento */
+.fc-event-title {
+    font-weight: 600;
+}
+
+/* Estilo para la hora del evento (si se muestra) */
+.fc-event-time {
+    font-weight: 500;
+    margin-right: 5px;
+    color: #555;
+}
+
+
+/* 6. Estilos específicos para vistas (ej. week, day) si los usas */
+/* Si usas timeGridWeek o timeGridDay, puedes ajustar esto */
+.fc-timegrid-slot {
+    height: 30px; /* Ajusta la altura de las franjas horarias */
+}
+
+.fc-timegrid-slot-label {
+    font-size: 0.8em;
+    color: #777;
+}
+
+/* Estilos para el espacio "más eventos" */
+.fc-daygrid-more-link {
+    font-size: 0.8em;
+    color: #007bff;
+    text-decoration: none;
+    padding: 2px 5px;
+    border-radius: 3px;
+    background-color: #f0f8ff;
+}
+
+.fc-daygrid-more-link:hover {
+    background-color: #e0f2ff;
+    text-decoration: underline;
+}

@@ -1,0 +1,276 @@
+/* src/components/Dashboard/Dashboard.css */
+
+/* Variables CSS (asegúrate de que estas estén definidas en un archivo global, como index.css o App.css) */
+/* Si no las tienes, puedes definirlas aquí temporalmente para probar, o usar valores hardcodeados */
+/*
+:root {
+    --color-white: #ffffff;
+    --color-text-dark: #333333;
+    --color-text-light: #666666;
+    --color-primary: #3f51b5; // Ejemplo de color primario
+    --color-summary-card-blue: #2196f3;
+    --color-summary-card-green: #4caf50;
+    --color-summary-card-red: #f44336;
+    --card-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+*/
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 25px; /* Espacio ENTRE las celdas del grid */
+    padding: 20px; /* Añadimos padding al contenedor principal del dashboard */
+    max-width: 1200px; /* Limita el ancho del dashboard */
+    margin: 40px auto; /* Centra el dashboard en la página */
+}
+
+/* Estilos generales para todas las tarjetas */
+.card {
+    background-color: var(--color-white);
+    border-radius: 12px; /* Más redondeado */
+    padding: 25px; /* Más padding */
+    box-shadow: var(--card-box-shadow); /* Usamos la variable de sombra */
+    transition: transform 0.2s ease-in-out; /* Pequeña animación al pasar el ratón */
+    margin-bottom: 0; /* Quitamos este margen para dejar que el gap del grid maneje el espacio */
+}
+
+.card:hover {
+    transform: translateY(-3px); /* Levanta un poco la tarjeta al pasar el ratón */
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px; /* Más espacio */
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 1.4rem; /* Un poco más grande */
+    color: var(--color-text-dark);
+    font-weight: 600; /* Semi-bold */
+}
+
+.card-header .icon {
+    font-size: 1.8rem; /* Tamaño para los íconos de las tarjetas */
+    color: var(--color-text-light);
+}
+
+.card-subtitle {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin: 5px 0 0 0;
+    /* Ajuste para que el texto no se salga */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; /* Intenta mantenerlo en una línea si es posible, pero con ellipsis */
+}
+
+
+/* Estilos específicos para las tarjetas de resumen */
+.summary-card {
+    border-left: 6px solid transparent; /* Inicialmente transparente para un efecto */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Espacio entre header, valor y detalle */
+    height: 160px; /* Altura fija para uniformidad */
+    box-sizing: border-box;
+}
+
+.summary-card .card-value {
+    font-size: 3rem; /* Más grande */
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin: 0 0 8px 0;
+}
+
+.summary-card .card-detail {
+    font-size: 0.9rem; /* REDUCIDO: para que quepa mejor el texto de "requieren atención inmediata" */
+    color: var(--color-text-light);
+    margin: 0;
+    /* Asegurarse que el texto no se desborde */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Colores para las tarjetas de resumen según el diseño */
+.summary-card.articles-card {
+    border-left-color: var(--color-summary-card-blue);
+}
+.summary-card.sessions-card {
+    border-left-color: var(--color-summary-card-green);
+}
+.summary-card.danger-card {
+    border-left-color: var(--color-summary-card-red);
+}
+
+/* Estilos para la sección de Próximas Sesiones */
+.session-list {
+    margin-bottom: 20px;
+}
+
+.session-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+    /* Para que el texto se ajuste mejor */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan si no hay espacio */
+    gap: 5px 10px; /* Espacio entre los elementos cuando se envuelven */
+}
+
+.session-item:last-child {
+    border-bottom: none;
+}
+
+.session-item .session-title {
+    font-weight: 500;
+    margin: 0;
+    font-size: 1.1rem;
+    flex-basis: 100%; /* Ocupa todo el ancho si se envuelve */
+}
+
+.session-item .session-date {
+    font-size: 0.9rem; /* Un poco más pequeña */
+    color: var(--color-text-light);
+    margin: 0;
+    /* flex-grow: 1; Removido para mejor control del ancho */
+    margin-left: 0; /* Reiniciar margin-left si se envuelve */
+}
+
+/* Estilos para la sección de Alertas Importantes */
+.alerts-card .card-subtitle {
+    margin-bottom: 15px; /* Espacio extra para el subtítulo */
+}
+
+.alerts-card .alert-list {
+    margin-bottom: 20px;
+}
+
+.alert-item {
+    padding: 12px 18px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    word-break: break-word; /* Permite que las palabras largas se rompan y no desborden */
+}
+.alert-item:last-child {
+    margin-bottom: 0;
+}
+
+.alert-item p {
+    margin: 0;
+}
+
+/* Estilos para los botones */
+.button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.1s ease;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.button:active {
+    transform: translateY(1px);
+}
+
+.button-link {
+    background: none;
+    color: var(--color-primary);
+    padding: 0;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.button-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.button.primary-button {
+    background-color: var(--color-primary); /* Asumamos que es un azul como #3f51b5 */
+    color: var(--color-white);
+}
+
+.button.primary-button:hover {
+    /* --- ¡CAMBIO AQUÍ! --- */
+    /* Este color (#303f9f) es un azul un poco más oscuro que #3f51b5,
+       ideal para un efecto de hover sin que el texto desaparezca. */
+    background-color: #303f9f;
+    /* Si tu --color-primary es diferente, puedes usar una herramienta
+       de color para encontrar un tono ligeramente más oscuro.
+       Ejemplo: si --color-primary es #007bff, el hover podría ser #0056b3 */
+}
+
+.button.secondary-button {
+    background-color: #6c757d;
+    color: var(--color-white);
+}
+
+.button.secondary-button:hover {
+    background-color: #181b1e;
+}
+
+.button.success-button {
+    background-color: #28a745;
+    color: var(--color-white);
+}
+
+.button.success-button:hover {
+    background-color: #218838;
+}
+
+.full-width-button {
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* Estilos para la sección de Accesos Rápidos */
+.quick-access-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center; /* Centramos los botones */
+}
+.quick-access-buttons .button {
+    flex-grow: 1; /* Permite que los botones crezcan para llenar el espacio */
+    min-width: 160px; /* Ancho mínimo para que no se hagan muy pequeños */
+}
+
+/* Media query para pantallas más grandes (simulando 3 columnas) */
+@media (min-width: 992px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(3, 1fr);
+        padding: 0; /* Si el contenedor padre ya tiene padding, puedes quitarlo aquí */
+        margin-top: 0; /* Asegurar que no haya un margen superior grande si está dentro de un contenedor con padding */
+    }
+    .summary-cards {
+        grid-column: 1 / -1; /* Ocupa todas las columnas */
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+        margin-bottom: 0;
+    }
+    .full-width-card {
+        grid-column: span 2; /* Ocupa 2 de las 3 columnas por defecto */
+    }
+    .alerts-card {
+        grid-column: span 1; /* Ocupa 1 columna (la restante) */
+    }
+    .quick-access-card {
+        grid-column: span 3; /* Ocupa las 3 columnas en la vista de escritorio */
+        margin-top: 0;
+    }
+}

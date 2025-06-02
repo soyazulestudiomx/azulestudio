@@ -1,0 +1,32 @@
+/* src/styles/SessionItem.css (o donde lo tengas) */
+.session-item-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+  background-color: white;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+.session-item-container:last-child {
+  border-bottom: none;
+}
+
+.session-item-info h4 {
+  margin: 0 0 5px 0;
+  font-size: 1.1em;
+  color: #333;
+}
+
+.session-item-info p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #666;
+}
+
+.small-button {
+  padding: 5px 10px;
+  font-size: 0.85em;
+}

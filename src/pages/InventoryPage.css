@@ -1,0 +1,391 @@
+/* src/pages/InventoryPage.css */
+
+/* Asegúrate de que tu .inventory-controls-section tenga display: flex */
+.inventory-controls-section {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan si la pantalla es pequeña */
+    gap: 20px; /* Espacio entre los grupos de controles */
+    margin-bottom: 20px;
+    align-items: flex-end; /* Alinea los elementos en la parte inferior */
+}
+
+/* Estilos para el contenedor del filtro de categoría */
+.category-filter-control {
+    display: flex;
+    flex-direction: column; /* Apila la etiqueta y el select */
+}
+
+.category-filter-control .filter-label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.category-filter-control .category-select {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+    background-color: white;
+    cursor: pointer;
+    min-width: 150px; /* Ancho mínimo para el select */
+}
+
+.category-filter-control .category-select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* Opcional: Ajustes para que los botones de estado no ocupen todo el ancho */
+.status-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Espacio entre los botones de estado */
+}
+.status-filters button {
+    flex-shrink: 0; /* Evita que los botones se encojan si hay muchos */
+}
+
+
+/* Asegúrate que el colSpan para el mensaje de no resultados es correcto (ya lo tenías en 5) */
+.no-results-message {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+    font-style: italic;
+}
+.inventory-page-container {
+    padding: 0;
+}
+
+.inventory-card {
+    padding: 30px;
+    background-color: var(--color-white);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.inventory-header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Alineado al inicio para evitar que el botón suba */
+    margin-bottom: 30px;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+    gap: 20px; /* Espacio entre los elementos */
+}
+
+.inventory-title-block h2 {
+    margin: 0;
+    font-size: 2.2rem;
+    color: var(--color-text-dark);
+    font-weight: 700;
+}
+
+.inventory-title-block p {
+    margin: 5px 0 0;
+    font-size: 1rem;
+    color: var(--color-text-light);
+}
+
+/* Sección de Controles (Búsqueda y Filtros) */
+.inventory-controls-section {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+    gap: 15px; /* Espacio entre los elementos */
+    margin-bottom: 25px;
+    align-items: center; /* Alinea verticalmente los elementos */
+}
+
+/* Barra de búsqueda */
+.inventory-search {
+    position: relative;
+    flex-grow: 1; /* Permite que la barra de búsqueda ocupe el espacio disponible */
+    max-width: 350px; /* Ancho máximo para la búsqueda */
+}
+
+.search-bar .search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+}
+
+.search-bar .search-input {
+    width: 100%;
+    padding: 12px 15px 12px 45px; /* Más padding a la izquierda para el icono */
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: var(--color-text-dark);
+    background-color: #fcfcfc;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-bar .search-input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.1);
+    outline: none;
+}
+
+/* Filtros de estado */
+.status-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px; /* Espacio entre los botones de filtro */
+    align-items: center;
+}
+
+.status-filters .button {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    background-color: var(--color-light-gray);
+    color: var(--color-text-dark);
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.status-filters .button:hover {
+    background-color: #e6e9ed;
+}
+
+.status-filters .button.status-active {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-color: var(--color-primary);
+}
+
+/* ¡NUEVOS ESTILOS PARA FILTRO DE CATEGORÍA! */
+.category-filters {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.category-filters .filter-label {
+    font-weight: 600;
+    color: var(--color-text-dark);
+    font-size: 0.95rem;
+}
+
+.category-filters .category-select {
+    padding: 8px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: var(--color-text-dark);
+    background-color: #fcfcfc;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    min-width: 150px; /* Ancho mínimo para el select */
+}
+
+.category-filters .category-select:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.1);
+    outline: none;
+}
+
+
+/* Tabla de inventario */
+.table-responsive {
+    overflow-x: auto; /* Permite scroll horizontal en tablas grandes */
+    margin-bottom: 25px;
+}
+
+.inventory-table {
+    width: 100%;
+    border-collapse: separate; /* Para border-radius en celdas */
+    border-spacing: 0;
+    background-color: var(--color-white);
+    border-radius: 12px; /* Border-radius en la tabla */
+    overflow: hidden; /* Asegura que el border-radius funcione */
+}
+
+.inventory-table thead th {
+    background-color: var(--color-light-gray);
+    color: var(--color-text-dark);
+    font-weight: 700;
+    padding: 15px 20px;
+    text-align: left;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.inventory-table tbody tr {
+    border-bottom: 1px solid #f0f2f5;
+    transition: background-color 0.2s ease;
+}
+
+.inventory-table tbody tr:last-child {
+    border-bottom: none; /* No hay borde en la última fila */
+}
+
+.inventory-table tbody tr:hover {
+    background-color: #f8f9fb;
+}
+
+.inventory-table tbody td {
+    padding: 15px 20px;
+    vertical-align: middle;
+    color: var(--color-text-dark);
+    font-size: 0.95rem;
+}
+
+/* Estilos para el status badge en la tabla */
+.status-badge-container {
+    white-space: nowrap; /* Evita que el badge se rompa en varias líneas */
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    text-align: center;
+    min-width: 90px;
+}
+
+.status-available {
+    background-color: rgba(var(--color-success-rgb), 0.15);
+    color: var(--color-success);
+}
+
+.status-en-uso {
+    background-color: rgba(var(--color-warning-rgb), 0.15);
+    color: var(--color-warning);
+}
+
+.status-en-reparación {
+    background-color: rgba(var(--color-info-rgb), 0.15);
+    color: var(--color-info);
+}
+
+.status-baja-carga {
+    background-color: rgba(255, 165, 0, 0.15); /* Naranja */
+    color: #ff9800; /* Naranja */
+}
+
+.status-perdido {
+    background-color: rgba(var(--color-danger-rgb), 0.15);
+    color: var(--color-danger);
+}
+
+/* Botones de acción en la tabla */
+.action-buttons-group {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap; /* Asegura que los botones se envuelvan si el espacio es limitado */
+}
+
+.action-link {
+    font-size: 0.9rem;
+    padding: 5px 10px;
+    background: none;
+    border: none;
+    color: var(--color-primary);
+    cursor: pointer;
+    text-decoration: none;
+    transition: text-decoration 0.2s ease;
+}
+
+.action-link:hover {
+    text-decoration: underline;
+}
+
+.action-separator {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+}
+
+.no-results-message {
+    text-align: center;
+    color: var(--color-text-light);
+    padding: 20px;
+    font-style: italic;
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 992px) {
+    .inventory-controls-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    .inventory-search {
+        max-width: 100%;
+        width: 100%;
+    }
+    .status-filters {
+        width: 100%;
+        justify-content: flex-start; /* Alinea los botones a la izquierda */
+    }
+    .category-filters {
+        width: 100%;
+        justify-content: flex-start;
+    }
+    .category-filters .category-select {
+        width: 100%;
+        min-width: unset; /* Elimina el ancho mínimo para que ocupe todo el ancho */
+    }
+}
+
+@media (max-width: 768px) {
+    .inventory-header-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .inventory-header-section .button {
+        width: 100%;
+    }
+    .inventory-table thead {
+        display: none; /* Oculta el encabezado de la tabla en móviles */
+    }
+    .inventory-table, .inventory-table tbody, .inventory-table tr, .inventory-table td {
+        display: block; /* Hace que las celdas y filas se comporten como bloques */
+        width: 100%;
+    }
+    .inventory-table tr {
+        margin-bottom: 15px;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        background-color: var(--color-white);
+        padding: 10px;
+    }
+    .inventory-table td {
+        text-align: right; /* Alinea el contenido a la derecha */
+        padding-left: 50%; /* Espacio para la etiqueta */
+        position: relative;
+        border-bottom: 1px dashed #f0f2f5;
+    }
+    .inventory-table td:last-child {
+        border-bottom: none;
+    }
+    .inventory-table td::before {
+        content: attr(data-label); /* Usa el atributo data-label como etiqueta */
+        position: absolute;
+        left: 15px;
+        width: calc(50% - 30px);
+        text-align: left;
+        font-weight: 600;
+        color: var(--color-text-dark);
+    }
+    /* Asigna los data-label a las celdas (se hará en el JSX) */
+    .inventory-table td:nth-of-type(1):before { content: "Nombre"; }
+    .inventory-table td:nth-of-type(2):before { content: "Cantidad"; }
+    .inventory-table td:nth-of-type(3):before { content: "Categoría"; } /* Nueva etiqueta */
+    .inventory-table td:nth-of-type(4):before { content: "Estado"; }
+    .inventory-table td:nth-of-type(5):before { content: "Acciones"; }
+
+    .status-badge-container {
+        display: flex;
+        justify-content: flex-end; /* Alinea el badge a la derecha */
+    }
+}

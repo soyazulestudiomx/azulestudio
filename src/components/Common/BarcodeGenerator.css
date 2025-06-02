@@ -1,0 +1,29 @@
+/* src/components/Common/BarcodeGenerator.css */
+
+.barcode-container {
+  padding: 10px;
+  background-color: white; /* Asegura un fondo blanco para la impresión */
+  display: inline-block; /* Para que el contenedor se ajuste al tamaño del SVG */
+  border: 1px solid #eee; /* Opcional: borde ligero */
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-align: center; /* Centra el código de barras si el contenedor es más grande */
+}
+
+/* Estilos para el placeholder si no hay valor */
+.barcode-placeholder {
+  color: #888;
+  font-style: italic;
+  padding: 20px;
+  border: 1px dashed #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+/* Opcional: Ocultar el botón de impresión al imprimir si está dentro del mismo componente */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}

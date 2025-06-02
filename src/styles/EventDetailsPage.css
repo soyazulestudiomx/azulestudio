@@ -1,0 +1,161 @@
+/* src/styles/EventDetailsPage.css */
+
+.details-container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 25px;
+    background-color: var(--color-white); /* Asume que tienes variables CSS para colores */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif; /* O la fuente de tu proyecto */
+}
+
+.details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    border-bottom: 1px solid var(--color-light-gray);
+    padding-bottom: 15px;
+}
+
+.details-header h1 {
+    color: var(--color-primary-dark); /* Color principal para títulos */
+    font-size: 2.2em;
+    margin: 0;
+}
+
+.button.back-button {
+    background-color: var(--color-secondary); /* Un color secundario para el botón de volver */
+    color: var(--color-white);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.button.back-button:hover {
+    background-color: darken(var(--color-secondary), 10%); /* Oscurecer al pasar el ratón */
+}
+
+.details-card {
+    background-color: var(--color-light-gray);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.details-card p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: var(--color-text-dark);
+}
+
+.details-card strong {
+    color: var(--color-primary); /* Un color para resaltar la información */
+    font-weight: bold;
+}
+
+.details-card h3 {
+    color: var(--color-primary-dark);
+    font-size: 1.5em;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    border-bottom: 1px dashed var(--color-gray);
+    padding-bottom: 5px;
+}
+
+.equipment-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.equipment-list li {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    font-size: 1em;
+    color: var(--color-text-dark);
+}
+
+.equipment-list li::before {
+    content: "\f061"; /* Icono de flecha derecha de FontAwesome (si lo tienes) */
+    font-family: "Font Awesome 5 Free"; /* Asegúrate de que FontAwesome esté cargado */
+    font-weight: 900;
+    margin-right: 10px;
+    color: var(--color-success); /* Un color para el icono */
+}
+
+.error-message {
+    color: var(--color-danger); /* Un color para mensajes de error */
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    background-color: #ffe0e0;
+    border: 1px solid #ffb3b3;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.details-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-light-gray);
+}
+
+/* Estilos para el botón de editar (usando tus clases Button existentes) */
+.button.primary-button {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.button.primary-button:hover {
+    background-color: #303f9f; /* Usa el color que quieres para el hover */
+    filter: brightness(0.9); /* Puedes mantener el filtro o eliminarlo */
+}
+
+/* Variables de ejemplo (ajusta a tus variables globales si las tienes) */
+/* Si ya tienes un archivo de variables global, no necesitas estas */
+:root {
+    --color-primary: #007bff; /* Azul vibrante */
+    --color-primary-dark: #0056b3;
+    --color-secondary: #6c757d; /* Gris para botones secundarios */
+    --color-success: #28a745; /* Verde para éxito/confirmación */
+    --color-danger: #dc3545; /* Rojo para errores/peligro */
+    --color-warning: #ffc107; /* Amarillo para advertencias */
+    --color-white: #ffffff;
+    --color-light-gray: #f8f9fa; /* Fondo muy claro */
+    --color-gray: #dee2e6; /* Borde y separadores */
+    --color-border: #e9ecef;
+    --color-text-dark: #343a40; /* Texto oscuro */
+    --color-text-light: #6c757d; /* Texto más claro */
+}
+
+/* Función darken de Sass no funciona directamente en CSS,
+   deberías predefinir el color oscuro o usar un preprocesador como Sass */
+/* Ejemplo de cómo definiría un darken si no usas preprocesador
+   .button.back-button:hover {
+       background-color: #5a6268;
+   }
+   .button.primary-button:hover {
+       background-color: #0056b3;
+   }
+*/

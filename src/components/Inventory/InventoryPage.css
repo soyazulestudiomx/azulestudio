@@ -1,0 +1,207 @@
+/* src/pages/InventoryPage.css */
+
+.inventory-page {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+.inventory-page h1 {
+    font-size: 2.5em;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.inventory-page p {
+    font-size: 1.1em;
+    color: #555;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.inventory-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-input,
+.filter-select {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    width: 200px; /* Ancho fijo para inputs/selects */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho */
+}
+
+.search-input:focus,
+.filter-select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.add-button {
+    background-color: #28a745; /* Verde */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+    background-color: #218838;
+}
+
+/* Tabla de Inventario */
+.inventory-table-container {
+    overflow-x: auto; /* Permite scroll horizontal en pantallas pequeñas */
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.inventory-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    min-width: 600px; /* Asegura un ancho mínimo para la tabla */
+}
+
+.inventory-table th,
+.inventory-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.inventory-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.inventory-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.inventory-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.no-results {
+    text-align: center;
+    padding: 20px;
+    color: #777;
+    font-style: italic;
+}
+
+/* Celda de Acciones en la tabla */
+.actions-cell {
+    white-space: nowrap; /* Evita que los botones se rompan en varias líneas */
+}
+
+.small-button {
+    padding: 8px 12px;
+    font-size: 0.9em;
+    margin-right: 5px; /* Espacio entre botones */
+}
+
+.edit-button {
+    background-color: #007bff; /* Azul */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edit-button:hover {
+    background-color: #0056b3;
+}
+
+.delete-button {
+    background-color: #dc3545; /* Rojo */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+/* Paginación (si usas un componente Pagination) */
+/* Este estilo es para el componente Pagination si lo tienes en src/components/common/Pagination.css
+   Si no lo tienes, puedes añadirlo aquí directamente o crear un archivo separado. */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.pagination-button {
+    background-color: #e9ecef;
+    border: 1px solid #dee2e6;
+    color: #495057;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.pagination-button:hover {
+    background-color: #dee2e6;
+}
+
+.pagination-button.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.pagination-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.pagination-info {
+    font-size: 1em;
+    color: #555;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .inventory-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-input,
+    .filter-select,
+    .add-button {
+        width: 100%;
+    }
+
+    .inventory-table th,
+    .inventory-table td {
+        padding: 8px 10px;
+        font-size: 0.9em;
+    }
+}

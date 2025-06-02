@@ -1,0 +1,104 @@
+/* src/pages/UserFormPage.css */
+
+.user-form-page-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+.user-form-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin-top: 30px;
+}
+
+.user-form-card h2 {
+    font-size: 2em;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.user-form .form-group {
+    margin-bottom: 20px;
+}
+
+.user-form .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #444;
+    font-size: 1em;
+}
+
+.user-form .form-group input[type="text"],
+.user-form .form-group input[type="email"],
+.user-form .form-group input[type="password"],
+.user-form .form-group select {
+    width: calc(100% - 20px); /* Ajusta por padding */
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.user-form .form-actions {
+    display: flex;
+    justify-content: flex-end; /* Alinea los botones a la derecha */
+    gap: 15px; /* Espacio entre botones */
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+/* Estilos para los botones (usando las clases primary-button, secondary-button de tu Button.js) */
+.user-form .primary-button {
+    background-color: #28a745; /* Verde */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.user-form .primary-button:hover {
+    background-color: #218838;
+}
+
+.user-form .secondary-button {
+    background-color: #6c757d; /* Gris */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.user-form .secondary-button:hover {
+    background-color: #5a6268;
+}
+
+/* Responsividad básica */
+@media (max-width: 600px) {
+    .user-form-card {
+        padding: 20px;
+    }
+
+    .user-form .form-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .user-form .form-actions .button {
+        width: 100%;
+    }
+}
