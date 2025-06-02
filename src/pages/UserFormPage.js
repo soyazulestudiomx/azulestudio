@@ -3,7 +3,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Card from '../components/Common/Card'; // Asumo que este componente existe
 import Button from '../components/Common/Button';
-import NotificationMessage from '../components/Common/NotificationMessage';
+import NotificationMessage from '../components/Common/NotificationMessage'; // Importación correcta del componente
 import './UserFormPage.css'; // Asegúrate de crear este archivo CSS
 
 // Ya no necesitas importar funciones de userData si vas a usar la API
@@ -23,7 +23,13 @@ function UserFormPage() {
   const [isEditing, setIsEditing] = useState(false);
   const [notification, setNotification] = useState(null);
 
-  const USERS_API_URL = 'http://localhost:5001/api/users'; // URL de tu API de usuarios
+  // ¡IMPORTANTE! Asegúrate de que esta URL apunte a tu backend desplegado en Render.
+  // Reemplaza 'https://tu-backend-en-render.onrender.com' con la URL REAL de tu backend.
+  // Si usas variables de entorno en Vercel, debería ser: process.env.REACT_APP_API_BASE_URL;
+  const USERS_API_URL = 'https://tu-backend-en-render.onrender.com/api/users';
+  // O si usas variables de entorno en Vercel:
+  // const USERS_API_URL = `${process.env.REACT_APP_API_BASE_URL}/users`;
+
 
   // Cargar datos del usuario si estamos en modo edición
   useEffect(() => {
@@ -58,7 +64,7 @@ function UserFormPage() {
       // Resetear formulario si no estamos editando (ej. si venimos de editar a añadir)
       setUser({ name: '', email: '', role: 'Visualizador', status: 'Activo', password: '' });
     }
-  }, [id, navigate]); // Depende de 'id' y 'navigate'
+  }, [id, navigate, USERS_API_URL]); // Añadido USERS_API_URL a las dependencias
 
   // Manejar cambios en los inputs del formulario
   const handleChange = useCallback((e) => {
@@ -124,7 +130,7 @@ function UserFormPage() {
       console.error("Error saving user:", error);
       setNotification({ message: `Error al ${isEditing ? 'actualizar' : 'añadir'} el usuario: ${error.message}`, type: 'error' });
     }
-  }, [user, isEditing, navigate, id]); // Añadir 'id' a las dependencias del useCallback
+  }, [user, isEditing, navigate, id, USERS_API_URL]); // Añadir 'id' y USERS_API_URL a las dependencias del useCallback
 
   // Función para cerrar la notificación
   const handleCloseNotification = useCallback(() => {
@@ -134,7 +140,7 @@ function UserFormPage() {
   return (
     <div className="user-form-page-container">
       {notification && (
-        <Notification
+        <NotificationMessage // <-- ¡AQUÍ ESTÁ LA CORRECCIÓN! (Línea 137 original)
           message={notification.message}
           type={notification.type}
           onClose={handleCloseNotification}
@@ -207,8 +213,8 @@ function UserFormPage() {
             </select>
           </div>
           <div className="form-actions">
-            <Button type="button" onClick={() => navigate('/usuarios')} className="secondary-button">Cancelar</Button> {/* Cambiado type a "button" */}
-            <Button type="submit" className="primary-button"> {/* Cambiado type a "submit" */}
+            <Button type="button" onClick={() => navigate('/usuarios')} className="secondary-button">Cancelar</Button>
+            <Button type="submit" className="primary-button">
               {isEditing ? 'Guardar Cambios' : 'Añadir Usuario'}
             </Button>
           </div>
